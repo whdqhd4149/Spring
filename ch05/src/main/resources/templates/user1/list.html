@@ -19,7 +19,7 @@
             <th>관리</th>
         </tr>
         <tr th:each="user:${dtoList}">
-            <td>[[${user.uid]]</td>
+            <td>[[${user.uid}]]</td>
             <td>[[${user.name}]]</td>
             <td th:text="${user.birth}"></td>
             <td th:text="${user.age}"></td>
