@@ -19,6 +19,9 @@ public class File {
     private String oName;
     private String sName;
 
+    @ManyToOne
+    @JoinColumn(name="ano")
+    private Article article;
 
 
 }

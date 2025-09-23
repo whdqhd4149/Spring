@@ -59,21 +59,21 @@ class ArticleRepositoryTest {
         articleRepository.save(article);
     }
 
-//    @Test
-//    void insertFileTest(){
-//
-//        Article article = Article.builder()
-//                .ano(1)
-//                .build();
-//
-//        File file = File.builder()
-//                .oName("매출자료2.xls")
-//                .sName("akfal-asd-1213dsdf.xls")
-//                .article(article)
-//                .build();
-//
-//        fileRepository.save(file);
-//    }
+    @Test
+    void insertFileTest(){
+
+        Article article = Article.builder()
+                .ano(1)
+                .build();
+
+        File file = File.builder()
+                .oName("매출자료2.xls")
+                .sName("akfal-asd-1213dsdf.xls")
+                .article(article)
+                .build();
+
+        fileRepository.save(file);
+    }
 
     @Test
     void insertCommentTest(){
@@ -104,27 +104,27 @@ class ArticleRepositoryTest {
             }
         }
     }
-//
-//    @Test
-//    @Transactional // Transaction 처리, 엔티티 연관관계에서 한번 이상의 SQL 처리가 이루어 지기 때문에 단일 작업 처리를 위해 트랜젝션 처리, 안하면 no session 에러
-//    void selectArticle(){
-//
-//        Optional<Article> optArticle = articleRepository.findById(1);
-//        System.out.println(optArticle);
-//
-//        if(optArticle.isPresent()){
-//
-//            Article article = optArticle.get();
-//            List<Comment> commentList = article.getCommentList();
-//
-//            for(Comment comment : commentList){
-//                System.out.println(comment);
-//            }
-//
-//            List<File> fileList = article.getFileList();
-//            for(File file : fileList){
-//                System.out.println(file);
-//            }
-//        }
-//    }
+
+    @Test
+    @Transactional // Transaction 처리, 엔티티 연관관계에서 한번 이상의 SQL 처리가 이루어 지기 때문에 단일 작업 처리를 위해 트랜젝션 처리, 안하면 no session 에러
+    void selectArticle(){
+
+        Optional<Article> optArticle = articleRepository.findById(1);
+        System.out.println(optArticle);
+
+        if(optArticle.isPresent()){
+
+            Article article = optArticle.get();
+            List<Comment> commentList = article.getCommentList();
+
+            for(Comment comment : commentList){
+                System.out.println(comment);
+            }
+
+            List<File> fileList = article.getFileList();
+            for(File file : fileList){
+                System.out.println(file);
+            }
+        }
+    }
 }
