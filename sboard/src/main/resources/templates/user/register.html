@@ -1,17 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>회원가입</title>
-    <link rel="stylesheet" href="../css/style.css"/>
-</head>
-<body>
-    <div id="wrapper">
-        <header>
-            <h3>
-                <a href="/index.html" class="title">Board Project</a>
-            </h3>
-        </header>
+<th:block th:include="~{/user/_head.html}"></th:block>
         <main id="user">
             <section class="register">
 
@@ -22,7 +9,7 @@
                             <td>아이디</td>
                             <td>
                                 <input type="text" name="uid" placeholder="아이디 입력"/>
-                                <button type="button"><img src="../images/chk_id.gif" alt="중복확인"/></button>
+                                <button type="button"><img th:src="@{/images/chk_id.gif}" alt="중복확인"/></button>
                                 <span class="uidResult"></span>
                             </td>
                         </tr>
@@ -49,7 +36,7 @@
                             <td>
                                 <p class="nickInfo">공백없는 한글, 영문, 숫자 입력</p>
                                 <input type="text" name="nick" placeholder="별명 입력"/>
-                                <button type="button"><img src="../images/chk_id.gif" alt="중복확인"/></button>
+                                <button type="button"><img th:src="@{/images/chk_id.gif}" alt="중복확인"/></button>
                                 <span class="nickResult"></span>
                             </td>
                         </tr>
@@ -57,10 +44,10 @@
                             <td>이메일</td>
                             <td>
                                 <input type="email" name="email" placeholder="이메일 입력"/>
-                                <button type="button"><img src="../images/chk_auth.gif" alt="인증번호 받기"/></button>
+                                <button type="button"><img th:src="@{/images/chk_auth.gif}" alt="인증번호 받기"/></button>
                                 <div class="auth">
                                     <input type="text" name="auth" placeholder="인증번호 입력"/>
-                                    <button type="button"><img src="../images/chk_confirm.gif" alt="확인"/></button>
+                                    <button type="button"><img th:src="@{/images/chk_confirm.gif}" alt="확인"/></button>
                                 </div>
                             </td>
                         </tr>
@@ -72,7 +59,7 @@
                             <td>주소</td>
                             <td>
                                 <input type="text" name="zip" placeholder="우편번호"/>
-                                <button type="button"><img src="../images/chk_post.gif" alt="우편번호찾기"/></button>
+                                <button type="button"><img th:src="@{/images/chk_post.gif}" alt="우편번호찾기"/></button>
                                 <input type="text" name="addr1" placeholder="주소 검색"/>
                                 <input type="text" name="addr2" placeholder="상세주소 입력"/>
                             </td>
@@ -88,12 +75,4 @@
 
             </section>
         </main>
-        <footer>
-            <p>
-                <span class="copyright">Copyrightⓒ 김철학(개발에반하다.)</span>
-                <span class="version">v1.0.1</span>
-            </p>
-        </footer>
-    </div>    
-</body>
-</html>
+<th:block th:include="~{/user/_tail.html}"></th:block>

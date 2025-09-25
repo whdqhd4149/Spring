@@ -1,17 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>아이디 찾기</title>
-    <link rel="stylesheet" href="../css/style.css"/>
-</head>
-<body>
-    <div id="wrapper">
-        <header>
-            <h3>
-                <a href="/index.html" class="title">Board Project</a>
-            </h3>
-        </header>
+<th:block th:include="~{/find/_head.html}"></th:block>
         <main id="find">
             <section class="userId">
                 <form action="#">
@@ -48,12 +35,4 @@
                 </div>
             </section>
         </main>
-        <footer>
-            <p>
-                <span class="copyright">Copyrightⓒ 김철학(개발에반하다.)</span>
-                <span class="version">v1.0.1</span>
-            </p>
-        </footer>
-    </div>    
-</body>
-</html>
+<th:block th:include="~{/find/_tail.html}"></th:block>
