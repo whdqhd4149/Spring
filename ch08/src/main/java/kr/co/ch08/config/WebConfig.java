@@ -14,7 +14,8 @@ public class WebConfig implements WebMvcConfigurer {
 
         registry
                 .addMapping("/**")                              // 서버의 모든 앤드포인트에 대해 허용
-                .allowedOriginPatterns("http://127.0.0.1:5200") // 서버의 요청을 허용할 Origin
+                //.allowedOriginPatterns("http://127.0.0.1:5200") // 서버의 요청을 허용할 Origin
+                .allowedOriginPatterns("*") // 앱 요청을 위해설정
                 .allowedHeaders("*")                            // 모든 헤더 허용
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")  // 허용할 메서드                           //
                 .allowCredentials(true)                                     // 자격증명 허용

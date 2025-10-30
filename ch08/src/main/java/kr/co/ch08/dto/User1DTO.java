@@ -16,11 +16,11 @@ import lombok.*;
 public class User1DTO {
 
     @NotBlank // null, "", " " 모두 허용 안함
-    @Pattern(regexp = "^[a-z0-9]{4,10}$", message = "영어 소문자, 숫자 조합 최소 4~10자 입력")
+    @Pattern(regexp = "^[A-Za-z가-힣]{2,20}$", message = "영어 소문자, 숫자 조합 최소 4~10자 입력")
     private String userid;
 
     @NotEmpty // null, "" 허용 안함
-    @Pattern(regexp = "^[가-힣]{2,10}$", message = "이름은 한글 2~10자 입력")
+    @Pattern(regexp = "^\\p{L}{2,20}$", message = "이름은 한글 2~10자 입력")
     private String name;
 
     @NotNull // null 허용안함
