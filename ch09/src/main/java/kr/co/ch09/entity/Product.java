@@ -18,6 +18,7 @@ public class Product {
     private int pno;
     private String productName;
     private String category;
+    private Integer cate2;
     private int price;
     private int point;
     private int discount;
@@ -31,17 +32,18 @@ public class Product {
     public ProductDTO toDTO(){
         return ProductDTO.builder()
                 .pno(pno)
-                .productName(productName)
-                .category(category)
+                .productName(productName == null ? "" : productName)
+                .category(category == null ? "" : category)
+                .cate2(cate2)
                 .price(price)
                 .point(point)
                 .discount(discount)
                 .delivery(delivery)
                 .stock(stock)
-                .thumb120(thumb120)
-                .thumb240(thumb240)
-                .thumb750(thumb750)
-                .etc(etc)
+                .thumb120(thumb120 == null ? "" : thumb120)
+                .thumb240(thumb240 == null ? "" : thumb240)
+                .thumb750(thumb750 == null ? "" : thumb750)
+                .etc(etc == null ? "" : etc)
                 .build();
     }
 

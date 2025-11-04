@@ -22,15 +22,22 @@
                     <tr>
                         <td>카테고리</td>
                         <td>
-                            <select name="category">
+                            <select id="category" name="category">
                                 <option>종류</option>
                                 <option value="10">의류</option>
                                 <option value="11">식품</option>
                                 <option value="12">가전</option>
+                                <option value="13">뷰티</option>
                             </select>
+
+                            <span id="cate2Wrap" style="display:none; margin-left:8px;">
+                              <select id="cate2" name="cate2">
+                                <option value="">소분류 선택</option>
+                              </select>
+                            </span>
                         </td>
                     </tr>
-                    <tr>
+
                         <td>가격</td>
                         <td>
                             <input type="number" name="price"/>
@@ -94,6 +101,55 @@
                     <input type="submit" value="상품등록" />
                 </p>
             </form>
+            <script>
+                // 대분류별 소분류 코드(플러터/DB랑 동일해야 함)
+                const CATE2_MAP = {
+                    "10": [ // 의류
+                        { id: 10, name: "상의" },
+                        { id: 11, name: "하의" },
+                        { id: 12, name: "아우터" },
+                    ],
+                    "11": [ // 식품
+                        { id: 20, name: "과일" },
+                        { id: 21, name: "채소" },
+                        { id: 22, name: "정육" },
+                    ],
+                    "12": [ // 가전
+                        { id: 30, name: "TV" },
+                        { id: 31, name: "냉장고" },
+                        { id: 32, name: "세탁기" },
+                    ],
+                    "13": [ // 뷰티
+                        { id: 40, name: "화장품" },
+                        { id: 41, name: "향수" },
+                        { id: 42, name: "스킨케어" },
+                    ],
+                };
+
+                const category = document.getElementById('category');
+                const cate2Wrap = document.getElementById('cate2Wrap');
+                const cate2 = document.getElementById('cate2');
+
+                function renderCate2() {
+                    const key = category.value;
+                    cate2.innerHTML = '<option value="">소분류 선택</option>';
+                    if (!key || !CATE2_MAP[key]) {
+                        cate2Wrap.style.display = 'none';
+                        return;
+                    }
+                    CATE2_MAP[key].forEach(sub => {
+                        const opt = document.createElement('option');
+                        opt.value = sub.id;       // ★ DB에 저장될 cate2 코드
+                        opt.textContent = sub.name;
+                        cate2.appendChild(opt);
+                    });
+                    cate2Wrap.style.display = '';
+                }
+                category.addEventListener('change', renderCate2);
+                renderCate2(); // 초기 렌더
+            </script>
+
+
         </article>
     </section>
 </body>

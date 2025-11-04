@@ -18,6 +18,7 @@ public class ProductDTO {
     private int pno;
     private String productName;
     private String category;
+    private Integer cate2;
     private int price;
     private int point;
     private int discount;
